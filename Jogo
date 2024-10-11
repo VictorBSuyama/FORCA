@@ -1,0 +1,45 @@
+#Jogo da Forca
+#p = palavra do jogo
+p = list('bola')
+total = []
+
+#criando uma lista com "_" do tamanho da palavra
+for c in range(0,len(p)):
+  total.append('_')
+cont = 0
+
+#introdução
+print('-' * 30)
+print(f'{"JOGO DA FORCA":^30}')
+print('-' * 30)
+
+#JOGO
+while True:
+  entr = input('Digite uma letra: ').lower()
+  
+  if len(entr) > 1:
+    print('Voce digitou mais de uma letra')
+  if entr in p:
+    
+    total[p.index(entr)]= entr.upper()
+    print('voce acertou.')
+    
+  else:
+    print('voce errou')
+    cont += 1
+  
+  if '_'not in total:
+    print('-' * 30)
+    print('{"VENCEU":^30}')
+    print('-' * 30)
+    print('<<-Encerrando o programa->>')
+    break
+  if cont == 6:
+    print('-' * 30)
+    print('{"PERDEU":^30}')
+    print('-' * 30)
+    break
+
+  for v in range(0, len(total)):
+    print(total[v], end='')
+  print()
